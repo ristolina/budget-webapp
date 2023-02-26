@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Budget</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='material.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Budget</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#this-month" class="mdl-layout__tab is-active">Aktuell månad</a>
+      <!--<a href="#history" class="mdl-layout__tab">Historik</a>-->
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Budget</span>
+  </div>
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="this-month">
+      <div class="page-content">
+      	<!-- Your content goes here -->
+      		{% include "this-month.html" %}
+      	</div>
+    </section>
+    <!--
+    <section class="mdl-layout__tab-panel" id="history">
+      <div class="page-content">
+      		{% include "history.html" %}
+      	</div>
+    </section>
+    -->
+  </main>
+</div>
+
+<script src="{{url_for('static', filename='material.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<h2>Aktuell månad</h2>
+<form method="POST" action="add-expense">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="household" name="household">
+    <label class="mdl-textfield__label" for="household">Hushåll</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+    <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="food" name="food">
+    <label class="mdl-textfield__label" for="food">Mat</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+    <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="transport" name="transport">
+    <label class="mdl-textfield__label" for="transport">Transport</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+    <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="misc" name="misc">
+    <label class="mdl-textfield__label" for="misc">Övrigt</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+	<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  Spara
+	</button>
+</form>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Kategori</th>
+      <th>Summa</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for key, value in expense.items() %}
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{ key }}</td>
+      <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h3>Total: {{ total }}kr</h3>
