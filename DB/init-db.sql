@@ -1,4 +1,3 @@
-CREATE DATABASE budget;
 USE budget;
 CREATE TABLE expenses (
     id INT NOT NULL AUTO_INCREMENT, 

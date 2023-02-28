@@ -66,7 +66,6 @@ var db *sql.DB
 
 func main() {
 	// Capture connection properties.
-	
 	cfg := mysql.Config{
 		User:                 os.Getenv("MYSQL_USER"),
 		Passwd:               os.Getenv("MYSQL_PASSWORD"),
@@ -75,20 +74,6 @@ func main() {
 		DBName:               os.Getenv("MYSQL_DATABASE"),
 		AllowNativePasswords: true,
 	}
-	
-	// DEV CONFIG
-	/*
-	ostest := os.Getenv("MYSQL_USER")
-	log.Fatal(ostest)
-	cfg := mysql.Config{
-		User:                 "budgetuser",
-		Passwd:               "budgetuser0!",
-		Net:                  "tcp",
-		Addr:                 "127.0.0.1:3306",
-		DBName:               "budget",
-		AllowNativePasswords: true,
-	}
-	*/
 	// Get a database handle.
 	var err error
 	db, err = sql.Open("mysql", cfg.FormatDSN())
