@@ -5,7 +5,6 @@ CREATE TABLE expenses (
     food_expenses INT NOT NULL,
     transport_expenses INT NOT NULL,
     misc_expenses INT NOT NULL,
-    yearmonth INT NOT NULL,
     created_at timestamp default current_timestamp,
     PRIMARY KEY (id)
     );
