@@ -2,7 +2,7 @@
 Budget WebApp is my final project in the Cloud Native Computing Course (https://ya.se/yrkeshogskola/cloud-native-computing/).
 
 # How to try it for yourself?
-1. Clone the repo or download the files.
+1. Clone the repo or download the files from https://github.com/ristolina/budget-webapp.
 2. Create the SECRETS folder and files with the different secret keys as referenced in the docker-compose.yaml
 3. Run docker compose build
 4. Run docker compose up
