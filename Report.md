@@ -6,4 +6,4 @@ This is a simple budgetting webapp built in Python Flask. It is using a micro se
 
 All three services are very loosely couple and will run independently.
 
-THe services are containerized using Docker and Docker Compose
+The services are containerized using Docker and Docker Compose
