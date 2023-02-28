@@ -6,12 +6,11 @@ CREATE TABLE expenses (
     food_expenses INT NOT NULL,
     transport_expenses INT NOT NULL,
     misc_expenses INT NOT NULL,
-    yearmonth INT NOT NULL,
     created_at timestamp default current_timestamp,
     PRIMARY KEY (id)
     );
 
-INSERT INTO expenses (household_expenses, food_expenses, transport_expenses, misc_expenses, yearmonth) 
+INSERT INTO expenses (household_expenses, food_expenses, transport_expenses, misc_expenses) 
     VALUES 
-        (16000, 8000, 5000, 2000, 2302), 
-        (12000, 10000, 4000, 1500, 2301);
+        (16000, 8000, 5000, 2000), 
+        (12000, 10000, 4000, 1500);

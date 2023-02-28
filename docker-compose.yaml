@@ -1,0 +1,49 @@
+version: "3"
+services:
+  backend:
+    build: ./backend/
+    environment:
+      MYSQL_PASSWORD: /run/secrets/mysql_password
+      MYSQL_DATABASE: budget
+      MYSQL_USER: budgetuser
+    command: "/budget"
+    ports:
+      - 5001:5001
+    secrets:
+      - mysql_password
+    depends_on:
+      - db
+    restart: on-failure
+  db:
+    image: "mariadb:latest"
+    volumes:
+      - budget-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_PASSWORD: /run/secrets/mysql_password
+      MYSQL_DATABASE: budget
+      MYSQL_USER: budgetuser
+    ports:
+      - 3307:3306
+    secrets:
+      - mysql_root_password
+      - mysql_password
+    restart: always
+    
+  frontend:
+    build: ./frontend/
+    command: [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+    ports:
+      - 5000:5000
+    depends_on:
+      - backend
+    restart: always
+
+secrets:
+  mysql_root_password:
+    file: ./SECRETS/.MYSQL_ROOT_PASSWORD
+  mysql_password:
+    file: ./SECRETS/.MYSQL_PASSWORD
+
+volumes:
+  budget-db:
